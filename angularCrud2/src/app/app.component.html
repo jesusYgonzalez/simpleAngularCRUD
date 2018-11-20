@@ -1,0 +1,14 @@
+<ul *ngFor="let product of productsArray"
+(click)="openForEdit(product)">
+  <li><span>{{ product.id }}: </span>{{ product.title }}</li>
+  <li>{{ product.content }}</li>
+</ul>
+
+<h1>Insert a new Product</h1>
+<input type="text" [(ngModel)]="selectedProduct.title" placeholder="insert a title">
+<input type="text" [(ngModel)]="selectedProduct.content" placeholder="insert a product">
+<button (click)="addEdit()">Submit</button>
+<button
+  *ngIf="selectedProduct.id !== 0"
+  (click)="onDelete()"
+>Delete</button>
